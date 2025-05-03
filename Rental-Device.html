@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nanta Rental  </title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+
+        html{
+            scroll-behavior: smooth;
+        }
+
+        .product-widget ul li a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .product-widget ul li a:hover {
+            text-decoration: underline; /* Kalau kamu pengen efek pas hover */
+            color: #555; /* Opsional, warna pas disentuh */
+        }
+
+
+            @media (max-width: 768px) {
+  /* Contoh penyesuaian */
+        .product-card {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+                @media (hover: none) {
+        .tooltip {
+            display: none; /* atau ubah ke click */
+        }
+        }
+
+                html, body {
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+        }
+
+
+        .sidebar {
+            display: none; /* Bisa diganti jadi toggle */
+        }
+        }
+
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1e2f51;
+            color: #fff;
+            padding: 20px 40px;
+        }        
+        .navbar img {
+            height: 100px; /* Menentukan tinggi logo */
+            max-width: 100%; 
+            transform: scale(2.5); /* Membesarkan logo 1.5x */
+        }   
+        .menu {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .menu li a {
+            color: white;
+            text-decoration: none;
+        }
+        .banner {
+            text-align: left;
+            padding: 50px;
+            background-color: #fff;
+        }
+        .banner img {
+            max-width: 100%;
+            height: auto;
+        }
+        .products {
+            padding: 20px;
+            text-align: center;
+        }
+        .product-list {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr); /* 5 kolom per baris */
+            gap: 20px; /* Jarak antar produk */
+            justify-items: center;
+        }
+        .product {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+        }
+        .product img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .rent-button {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .rent-button:hover {
+            background-color: #333;
+        }
+
+        /* Tata letak utama */
+        .container {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Pencarian */
+        .search-box {
+            margin-bottom: 20px;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+        }
+
+        .search-box button {
+            width: 100%;
+            padding: 10px;
+            background: black;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Kategori Produk */
+        .product-categories h3 {
+            font-size: 16px;
+            font-weight: bold;
+            border-bottom: 2px solid black;
+            padding-bottom: 5px;
+        }
+
+        .product-categories ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .product-categories ul li {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .product-categories ul li ul {
+            margin-left: 15px;
+            font-size: 13px;
+            color: #666;
+        }
+
+        .rent-button {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: black;
+            color: white;
+            text-align: center;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .rent-button:hover {
+            background-color: #333;
+        }
+
+
+        .whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .sewa-iphone {
+            text-align: left;
+            padding-right: 20px; 
+        }
+
+
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+    <img src="images/logo.png" alt="logo">  
+    <ul class="menu">
+        <li><a href="#home">Beranda</a></li>
+        <li><a href="#product">Produk Kami</a></li>
+        <li><a href="#footer">Hubungi Kami</a></li>   
+    </nav>
+    
+<section id="home">
+    <!-- Banner -->
+    <header class="banner">
+        <h2 class="sewa-iphone">Penyewaan Gadget</h2>
+        <p>Nanta Rental siap melayani Anda yang membutuhkan perangkat yang mumpuni. Berbagai seri perangkat tersedia untuk memenuhi kebutuhan Anda. </p>
+        <img src="https://t2.tudocdn.net/592932?w=1920" alt="Banner Sewa iPhone">
+    </header>
+</body>
+</section>
+
+
+    <div class="container">
+        <!-- Sidebar Kiri -->
+        <aside class="sidebar">
+            <div class="search-box">
+                <h3>Pencarian Produk</h3>
+                <input type="text" id="searchInput" placeholder="Cari Produk...">
+                <button onclick="searchProducts()">Cari</button>
+            </div>
+    
+            <div class="product-widget">
+                <h3>Kategori Produk</h3>
+                <ul>
+                  <li><a href="#product" onclick="filterCategory('iphone')">Iphone</a></li>
+                  <li><a href="#product" onclick="filterCategory('kamera')">Kamera</a></li>
+                  <li><a href="#product" onclick="filterCategory('macbook')">Macbook</a></li>
+                  <li><a href="#product" onclick="filterCategory('all')">Semua Produk</a></li>      
+                </ul>
+              </div>              
+        </aside>
+  
+
+        <!-- Konten Produk -->
+        <section class="product-list" id="product">
+                <div class="product product-card kategori-iphone">
+                    
+                    <img src="images/iPhone-11-ProMax-600x771.png" alt="iPhone 11Promax">
+                    <h4 style="color: rgb(76, 71, 71);">iPhone 11 Promax</h4>
+                    <p>Rp 249.999</p> 
+                    <a href="pembayaran.html?produk=iPhone11ProMax&harga=249000&gambar=images/iPhone-11-ProMax-600x771.png&spesifikasi=Layar%3A%206.5%E2%80%B3%20OLED%2C%20resolusi%201242%20x%202688%20piksel%3BRAM%20%26%20Storage%3A%204GB%20RAM%2C%20opsi%2064GB%2F256GB%2F512GB%3BKamera%3A%20Belakang%3A%20Triple%2012%20MP%20(wide%2C%20telephoto%2C%20ultrawide)%3BDepan%3A%2012%20MP%3BBerat%3A%20226%20gram%3BBaterai%3A%203969%20mAh%2C%20fast%20charging%2018W%2C%20wireless%20charging%3BSistem%20Operasi%3A%20iOS%2013%20(upgradable)%3BChipset%3A%20A13%20Bionic
+                    " class="rent-button">Sewa Sekarang</a>
+                </div>
+                <div class="product product-card kategori-iphone">
+                    <img src="images/iPhone-13-Pro-Max-600x771.png" alt="iPhone 13 Promax">
+                    <h4 style="color: rgb(76, 71, 71);">iPhone 13 Promax</h4>
+                    <p>Rp 429.999</p> 
+                    <a href="pembayaran.html?produk=iPhone13Promax&harga=249999&gambar=images/iPhone-13-Pro-Max-600x771.png&spesifikasi=Layar%3A%206.7%E2%80%B3%20OLED%2C%20resolusi%202778%20x%201284%20piksel%2C%20120Hz%20ProMotion%3BRAM%20%26%20Storage%3A%206GB%20RAM%2C%20opsi%20128GB%2F256GB%2F512GB%2F1TB%3BKamera%3A%20Belakang%3A%20Triple%2012MP%20(wide%2C%20telephoto%2C%20ultra-wide)%3BDepan%3A%2012MP%3BBerat%3A%20240%20gram%3BBaterai%3A%204352%20mAh%2C%20fast%20charging%2020W%2C%20MagSafe%3BSistem%20Operasi%3A%20iOS%2015%3BChipset%3A%20A15%20Bionic" class="rent-button">Sewa Sekarang</a>
+                </div>
+                <div class="product product-card kategori-iphone">
+                    <img src="images/iPhone-14-600x771.png" alt="iPhone 14">
+                    <h4 style="color: rgb(76, 71, 71);">iPhone 14</h4>
+                    <p>Rp 379.999</p>
+                    <a href="pembayaran.html?produk=iPhone14&harga=379999&gambar=images/iPhone-14-600x771.png&spesifikasi=Layar%3A%206%2C1%20inci%20Super%20Retina%20XDR%2C%20resolusi%202532%20x%201170%3BProsesor%3A%20A15%20Bionic%3BRAM%3A%206GB%3BPenyimpanan%3A%20128GB%2C%20256GB%2C%20512GB%3BPort%3A%20Lightning%3BKamera%3A%20Belakang%3A%2012MP%20%2B%2012MP%3BDepan%3A%2012MP%3BBerat%3A%20172%20gram%3BBaterai%3A%203.279%20mAh%20Li-Ion%2C%20fast%20charging%2C%20MagSafe%3BSistem%20Operasi%3A%20iOS%2016
+                    " class="rent-button">Sewa Sekarang</a>
+                </div>
+                <div class="product product-card kategori-iphone">
+                    <img src="images/iPhone-14-Pro-600x771.png" alt="iPhone 14 Pro">
+                    <h4 style="color: rgb(76, 71, 71);">iPhone 14 Pro</h4>
+                    <p>Rp 499.999</p>
+                    <a href="pembayaran.html?produk=iPhone14Pro&harga=499999&gambar=images/iPhone-14-Pro-600x771.png&spesifikasi=Layar%3A%206.1%E2%80%B3%20Super%20Retina%20XDR%20OLED%2C%202556%20x%201179%20piksel%2C%20120Hz%20ProMotion%3BRAM%20%26%20Storage%3A%206GB%20RAM%2C%20opsi%20128GB%2F256GB%2F512GB%2F1TB%3BKamera%3A%20Belakang%3A%2048MP%20%2B%2012MP%20%2B%2012MP%3BDepan%3A%2012MP%3BBerat%3A%20206%20gram%3BBaterai%3A%20Li-Ion%2C%20fast%20charging%2C%20MagSafe%3BSistem%20Operasi%3A%20iOS%2016%3BChipset%3A%20A16%20Bionic
+                    " class="rent-button">Sewa Sekarang</a>
+                </div>
+                <div class="product product-card kategori-iphone">
+                    <img src="images/iPhone-14-Pro-max-600x771.png" alt="iPhone 14 Promax">
+                    <h4 style="color: rgb(76, 71, 71);">iPhone 14 Promax</h4>
+                    <p>Rp 524.999</p>
+                    <a href="pembayaran.html?produk=iPhone14Promax&harga=524999&gambar=images/iPhone-14-Pro-max-600x771.png&spesifikasi=Layar%3A%20OLED%206.7%20inci%2C%20resolusi%201290%20x%202796%20piksel%2C%20460%20ppi%2C%20Super%20Retina%20XDR%2C%20Always-On%20Display%2C%20HDR10%2C%20Dolby%20Vision%2C%20120Hz%20refresh%20rate.%3BRAM%20%26%20Storage%3A%206GB%20LPDDR5%20RAM%2C%20penyimpanan%20internal%20128GB%2F256GB%2F512GB%2F1TB.%3BKamera%3A%20Belakang%3A%2048%20MP%20(utama%2C%20OIS%2C%20PDAF)%2C%2012%20MP%20(telefoto%2C%20OIS%2C%203x%20optical%20zoom)%2C%2012%20MP%20(ultra-wide).%3BDepan%3A%2012%20MP%2C%20autofocus%2C%20HDR.%3BBerat%3A%20240%20gram.%3BDaya%20%26%20Baterai%3A%204323%20mAh%2C%20pengisian%20cepat%20(wired%2025W%2C%20wireless%2015W)%2C%20MagSafe.%3BSistem%20Operasi%3A%20iOS%2016.%3BChipset%3A%20Apple%20A16%20Bionic%20(5nm).
+                    " class="rent-button">Sewa Sekarang</a>
+                </div>
+                <div class="product product-card kategori-iphone">
+                    <img src="images/iPhone-15-Pro-600x771.png" alt="iPhone 15 Pro">
+                    <h4 style="color: rgb(76, 71, 71);">iPhone 15 Pro</h4>
+                    <p>Rp 559.999</p>
+                    <a href="pembayaran.html?produk=iPhone15Pro&harga=559999&gambar=images/iPhone-15-Pro-600x771.png&spesifikasi=Layar%3A%206%2C1%20inci%20Super%20Retina%20XDR%2C%20ProMotion%20120Hz%3BProsesor%3A%20A17%20Pro%2C%20CPU%206-core%2C%20GPU%206-core%3BRAM%3A%208GB%3BPenyimpanan%3A%20128GB%2C%20256GB%2C%20512GB%2C%201TB%3BKamera%20Belakang%3A%2048MP%20utama%20(f%2F1.78)%3B12MP%20ultra-wide%20(f%2F2.2)%3B12MP%20telefoto%203x%20zoom%20(f%2F2.8)%3BKamera%20Depan%3A%2012MP%20(f%2F1.9)%20dengan%20autofokus%3BBaterai%3A%203%2C274%20mAh%3BPort%3A%20USB-C%20dengan%20dukungan%20USB%203%20(hingga%2010Gb%2Fs)%3BKonektivitas%3A%205G%2C%20Wi-Fi%206E%2C%20Bluetooth%205.3%2C%20Ultra%20Wideband%20(UWB)%20generasi%20kedua
+                    " class="rent-button">Sewa Sekarang</a>
+                </div>
+                <div class="product product-card kategori-iphone">
+                    <img src="images/iPhone-15-ProMax-600x771.png" alt="iPhone 15 Promax">
+                    <h4 style="color: rgb(76, 71, 71);">iPhone 15 Promax</h4>
+                    <p>Rp 574.999</p>
+                    <a href="pembayaran.html?produk=iPhone15Promax&harga=574999&gambar=images/iPhone-15-ProMax-600x771.png&spesifikasi=Layar%3A%20OLED%2C%206.7%20inci%2C%201290%20x%202796%20piksel%2C%20460%20ppi%2C%20Super%20Retina%20XDR%2C%20ProMotion%20hingga%20120Hz%2C%20HDR10%2C%20Dolby%20Vision%2C%20kecerahan%20puncak%20hingga%202000%20nits.%3BRAM%20%26%20Storage%3A%208%20GB%20RAM%3B%20pilihan%20storage%3A%20128%20GB%2C%20256%20GB%2C%20512%20GB%2C%201%20TB.%3BKamera%3A%20Sistem%20tiga%20kamera%2048%20MP%20(wide)%2C%2012%20MP%20(ultrawide)%2C%2012%20MP%20(telephoto)%3B%20kamera%20depan%2012%20MP.%3BBerat%3A%20221%20gram.%3BDaya%20%26%20Baterai%3A%20Baterai%20lithium-ion%20bawaan%2C%20pemutaran%20video%20hingga%2029%20jam%2C%20pengisian%20cepat%20hingga%2050%25%20dalam%20sekitar%2030%20menit%20dengan%20adapter%2020W%20atau%20lebih%20tinggi.%3BSistem%20Operasi%3A%20iOS%2017.%3BChipset%3A%20Apple%20A17%20Bionic%2C%203%20nm%2C%20CPU%20hexa-core%2C%20GPU%20Apple%20dengan%206%20core.
+                    " class="rent-button">Sewa Sekarang</a>
+                </div>
+                <div class="product product-card kategori-kamera">
+                    <img src="images/GoPro-Hero-12-600x771.png" alt="GoPro Hero 12">
+                    <h4 style="color: rgb(76, 71, 71);">GoPro Hero 12</h4>
+                    <p>Rp 184.999</p>
+                    <a href="pembayaran.html?produk=GoProHero12&harga=184999&gambar=images/GoPro-Hero-12-600x771.png&spesifikasi=Tipe%20Kamera%3A%20Action%20Camera%3BUkuran%3A%2071%20x%2055%20x%2033.6%20mm%3BBerat%3A%20153%20g%3BSensor%20Kamera%3A%201%2F2.3%E2%80%B3%20CMOS%2C%2023%20MP%3BKonektivitas%3A%20Wi-Fi%2C%20Bluetooth%2C%20USB-C%2C%20HDMI%20micro%3BFitur%20Lensa%20Kamera%3A%20Lensa%20wide-angle%20dengan%20sudut%20pandang%20hingga%20170%C2%B0%2C%20aperture%20f%2F2.8%2C%20HyperSmooth%204.0%20stabilisasi%20gambar%3BFitur-Fitur%20Video%3A%20Perekaman%205.3K%20pada%2060fps%2C%204K%20pada%20120fps%2C%20slow-motion%20hingga%20240fps%20pada%202.7K
+                    " class="rent-button">Sewa Sekarang</a>
+                </div>
+                <div class="product product-card kategori-kamera">
+                    <img src="images/Canon-M10-600x771.png" alt="Canon-M10-600x771">
+                    <h4 style="color: rgb(76, 71, 71);">Canon M10</h4>
+                    <p>Rp 119.999</p>
+                    <a href="pembayaran.html?produk=CanonM10&harga=119999&gambar=images/GoPro-Hero-12-600x771.png&spesifikasi=Tipe%20Kamera%3A%20Mirrorless%2C%20dengan%20layar%20Touchscreen%3BUkuran%3A%20108%20x%2067%20x%2035%20mm%3BBerat%3A%20301%20g%20(termasuk%20baterai%20dan%20kartu%20memori)%3BSensor%20Kamera%3A%20APS-C%20CMOS%2C%2018%20MP%3BKonektivitas%3A%20Wi-Fi%2C%20NFC%2C%20USB%202.0%2C%20HDMI%20mini%3BFitur%20Lensa%20Kamera%3A%20Kompatibel%20dengan%20lensa%20EF-M%2C%20lensa%20kit%2015-45mm%20IS%20STM%2C%20autofokus%20Hybrid%20CMOS%20AF%20II%3BFitur-Fitur%20Video%3A%20Perekaman%20Full%20HD%201080p%20pada%2030fps%2C%20mode%20video%20manual%2C%20layar%20sentuh%20yang%20dapat%20dimiringkan%20180%20derajat%3BBentuk%20Output%3A%20Foto%20dalam%20format%20JPEG%2C%20RAW%3BVideo%20dalam%20format%20MP4%20dengan%20kompresi%20H.264
+                    " class="rent-button">Sewa Sekarang</a>
+                </div>
+                <div class="product product-card kategori-kamera">
+                    <img src="images/Canon-EOS-100D-600x771.png" alt="Canon-EOS-100D-600x771">
+                    <h4 style="color: rgb(76, 71, 71);">Canon EOS 100D</h4>
+                    <p>Rp 89.999</p>
+                    <a href="pembayaran.html?produk=CanonEOS100D&harga=89999&gambar=images/Canon-EOS-100D-600x771.png&spesifikasi=Tipe%20Kamera%3A%20Mirrorless%2C%20dengan%20layar%20Touchscreen%3BUkuran%3A%20108%20x%2067%20x%2035%20mm%3BBerat%3A%20301%20g%20(termasuk%20baterai%20dan%20kartu%20memori)%3BSensor%20Kamera%3A%20APS-C%20CMOS%2C%2018%20MP%3BKonektivitas%3A%20Wi-Fi%2C%20NFC%2C%20USB%202.0%2C%20HDMI%20mini%3BFitur%20Lensa%20Kamera%3A%20Kompatibel%20dengan%20lensa%20EF-M%2C%20lensa%20kit%2015-45mm%20IS%20STM%2C%20autofokus%20Hybrid%20CMOS%20AF%20II%3BFitur-Fitur%20Video%3A%20Perekaman%20Full%20HD%201080p%20pada%2030fps%2C%20mode%20video%20manual%2C%20layar%20sentuh%20yang%20dapat%20dimiringkan%20180%20derajat%3BBentuk%20Output%3A%20Foto%20dalam%20format%20JPEG%2C%20RAW%3BVideo%20dalam%20format%20MP4%20dengan%20kompresi%20H.264
+                    " class="rent-button">Sewa Sekarang</a>
+                </div>
+                <div class="product product-card kategori-kamera">
+                    <img src="images/Fujifilm-X-A5-600x771.png"  alt="Fujifilm-X-A5-600x771">
+                    <h4 style="color: rgb(76, 71, 71);">Fujifilm A5</h4>
+                    <p>Rp 119.999</p>
+                    <a href="pembayaran.html?produk=FujifilmXA5&harga=119999&gambar=images/Fujifilm-X-A5-600x771.png&spesifikasi=Tipe%20Kamera%3A%20Mirrorless%2C%20dengan%20layar%20Touchscreen%3BUkuran%3A%20117%20x%2068%20x%2040%20mm%3BBerat%3A%20361%20g%20(termasuk%20baterai%20dan%20kartu%20memori)%3BSensor%20Kamera%3A%20APS-C%20CMOS%2C%2024.2%20MP%3BKonektivitas%3A%20Wi-Fi%2C%20Bluetooth%2C%20USB%202.0%2C%20HDMI%20micro%3BFitur%20Lensa%20Kamera%3A%20Kompatibel%20dengan%20lensa%20Fujinon%20X-mount%2C%20lensa%20kit%2015-45mm%20OIS%20PZ%2C%20autofokus%20deteksi%20fase%20dan%20kontras%3BFitur-Fitur%20Video%3A%20Perekaman%204K%20pada%2015fps%2C%20Full%20HD%201080p%20pada%2060fps%2C%20slow-motion%20720p%20pada%20120fps%2C%20layar%20sentuh%20yang%20dapat%20dimiringkan%20180%20derajat%3BBentuk%20Output%3A%20Foto%20dalam%20format%20JPEG%2C%20RAW%3BVideo%20dalam%20format%20MOV%20dengan%20kompresi%20H.264
+                    " class="rent-button">Sewa Sekarang</a>
+                </div>
+                <div class="product product-card kategori-kamera">
+                    <img src="images/Drone-FIMI-X8-Mini.png"  alt="Fujifilm-X-A5-600x771">
+                    <h4 style="color: rgb(76, 71, 71);">Drone FIMI X8 Mini</h4>
+                    <p>Rp 174.999</p>
+                    <a href="pembayaran.html?produk=DroneFIMIX8Mini&harga=119999&gambar=images/Drone-FIMI-X8-Mini.png&spesifikasi=Tipe%20Kamera%3A%20Drone%3BUkuran%3A%20145%20x%2085%20x%2056%20mm%20(lipat)%3BBerat%3A%20258%20g%20(tanpa%20baterai)%3BSensor%20Kamera%3A%201%2F2.6%E2%80%B3%20CMOS%2C%2012%20MP%3BKonektivitas%3A%20Wi-Fi%2C%20USB-C%3BFitur%20Lensa%20Kamera%3A%20Lensa%20wide-angle%2080%C2%B0%2C%20aperture%20f%2F2.0%2C%20autofokus%20tetap%3BFitur-Fitur%20Video%3A%20Perekaman%204K%20pada%2030fps%2C%20Full%20HD%201080p%20pada%2060fps%2C%20stabilisasi%20gimbal%203-axis%2C%20mode%20video%20hyperlapse%20dan%20slow-motion%3BBentuk%20Output%3A%20Foto%20dalam%20format%20JPEG%2C%20DNG%20(RAW)%3BVideo%20dalam%20format%20MP4%20dengan%20kompresi%20H.264
+                    " class="rent-button">Sewa Sekarang</a>
+                </div>
+                <div class="product product-card kategori-macbook">
+                    <img src="images/Macbook-Pro-13-600x771.png"  alt="Mackbook-Pro-13-600x771">
+                    <h4 style="color: rgb(76, 71, 71);">Macbook Pro 13</h4>
+                    <p>Rp 129.999</p>
+                    <a href="pembayaran.html?produk=MacbookPro13&harga=129999&gambar=images/Macbook-Pro-13-600x771.png&spesifikasi=Prosesor%3A%20Core%20i5%3BLayar%3A%2013.3%20inci%20Retina%20Display%20dengan%20True%20Tone%2C%20Resolusi%202560%20x%201600%3BMemory%3A%208GB%20unified%20memory%20(dapat%20di-upgrade%20hingga%2016GB)%3BStorage%3A%20256GB%2C%20512GB%2C%201TB%2C%20atau%202TB%20SSD%3BBerat%3A%201.4%20kg%3BKonektivitas%3A%20Wi-Fi%20802.11ax%20(Wi-Fi%206)%2C%20Bluetooth%205.0%2C%202x%20Thunderbolt%20%2F%20USB%204%20ports%2C%201x%20Audio%20combo%20jack%3BSistem%20Operasi%3A%20macOS%20Big%20Sur%20(dapat%20di-upgrade%20ke%20macOS%20terbaru)
+                    " class="rent-button">Sewa Sekarang</a>
+                </div>
+                <div class="product product-card kategori-macbook">
+                    <img src="images/Macbook-Pro-2018-600x771.png"  alt="Macbook-Pro-2018-600x771">
+                    <h4 style="color: rgb(76, 71, 71);">Macbook Pro 2017</h4>
+                    <p>Rp 199.999</p>
+                    <a href="pembayaran.html?produk=MacbookPro2018&harga=199999&gambar=images/Macbook-Pro-2018-600x771.png&spesifikasi=Prosesor%3A%20Intel%20Core%20i7%206-core%202.2%20GHz%20(Turbo%20Boost%20hingga%204.1%20GHz)%3BLayar%3A%2013%20inci%20Retina%20Display%20dengan%20True%20Tone%2C%20Resolusi%202880%20x%201800%3BMemory%3A%208GB%20DDR4%2C%202400%20MHz%20(dapat%20di-upgrade%20hingga%2032GB)%3BStorage%3A%20128GB%3BBerat%3A%201%2C37%20kg%3BKonektivitas%3A%20Wi-Fi%20802.11a%2Fb%2Fg%2Fn%2Fac%2C%20Bluetooth%205.0%2C%204x%20Thunderbolt%203%20(USB-C)%2C%201x%20Audio%20combo%20jack%3BSistem%20Operasi%3A%20macOS%20Mojave%20(dapat%20di-upgrade%20ke%20macOS%20terbaru)
+                    " class="rent-button">Sewa Sekarang</a>
+                </div>
+                <div class="product product-card kategori-macbook">
+                    <img src="images/Macbook-Air-13_-2017-600x771.png"  alt="Macbook-Air-13_-2017-600x771">
+                    <h4 style="color: rgb(76, 71, 71);">Macbook Air 13 2017</h4>
+                    <p>Rp 119.999</p>
+                    <a href="pembayaran.html?produk=MacbookAir13&harga=119999&gambar=images/Macbook-Air-13_-2017-600x771.png&spesifikasi=Prosesor%3A%20Intel%20Core%20i5%20dual-core%201.8%20GHz%20(Turbo%20Boost%20hingga%202.9%20GHz)%3BLayar%3A%2013.3%20inci%20LED-backlit%20glossy%20widescreen%2C%20Resolusi%201440%20x%20900%3BMemory%3A%208GB%20LPDDR3%2C%201600%20MHz%20(onboard%2C%20tidak%20dapat%20di-upgrade)%3BStorage%3A%20128GB%20atau%20256GB%20SSD%3BBerat%3A%201.35%20kg%3BSistem%20Operasi%3A%20macOS%20Sierra%20(dapat%20di-upgrade%20ke%20macOS%20terbaru)%3BKonektivitas%3A%20Wi-Fi%20802.11a%2Fb%2Fg%2Fn%2Fac%2C%20Bluetooth%204.0%2C%202x%20USB%203.0%2C%201x%20Thunderbolt%202%2C%201x%20MagSafe%202%20power%20port%2C%201x%20SDXC%20card%20slot%2C%201x%20Audio%20combo%20jack
+                    " class="rent-button">Sewa Sekarang</a>
+                </div>  
+
+        </section>
+    </div>
+
+      
+        <footer style="background-color: #111; color: #ccc; padding: 40px 20px; font-family: sans-serif;" id="footer">
+            <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
+                
+              <div style="flex: 1; min-width: 200px; text-align: left;">
+                <h3 style="color: white;">NANTA RENTAL</h3>
+                <p>Jasa sewa iphone, kamera, dan laptop se-kota banyuwangi dan sekitarnya. Solusi harian tanpa harus membeli produk yang mahal dalam  kebutuhan konten atau live streamingmu.</p>
+              </div>
+              
+              <div style="flex: 1; min-width: 200px; text-align: center;">
+                <h3 style="color: white;">HUBUNGI KAMI</h3>
+                <div style="display: inline-block; text-align: left;">
+                <p>Jl. Brawijaya, Kebalenan, Glagah, Banyuwangi</p>
+                <p>+62 899 0305 136</p>
+                <p>Email : ariel00545@gmail.com</p>
+                </div>
+              </div>
+              
+              <div style="flex: 1; min-width: 200px; text-align: right;">
+                <h3 style="color: white;">IKUTI KAMI</h3>
+                <p>
+                    <a href="https://instagram.com/davaananta_" target="_blank" style="color: white; text-decoration: none;">
+                      <i class="fab fa-instagram" style="margin-right: 8px;"></i>Instagram
+                    </a>
+                  </p>
+                  <p>
+                    <a href="https://tiktok.com/@davaananta2" target="_blank" style="color: white; text-decoration: none;">
+                      <i class="fab fa-tiktok" style="margin-right: 8px;"></i>TikTok
+                    </a>
+                  </p>
+              </div>
+            
+            </div>
+          
+            <hr style="border-color: #444; margin: 20px 0;">
+
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; padding: 20px 0;">
+
+              <!-- MAP -->
+              <div style="flex: 0 0 60%;">
+                <h3 style="color: white;">Kunjungi Lokasi Kami</h3>
+                <p style="color: white;">Perumahan Brawijaya, Kebalenan, Banyuwangi</p>
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d420.59427819556646!2d114.35317053521742!3d-8.225767261921149!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2dd15b08b3455c2f%3A0xd575e712f2099e2!2sPuri%20Brawijaya%20Permai%20D9!5e0!3m2!1sid!2sid!4v1745391488676!5m2!1sid!2sid"
+                  width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+              </div>
+            
+              <!-- FORM KOMENTAR -->
+              <div style="flex: 0 0 35%; max-width: 400px;">
+                <h3 style="color: white;">Ulasan Pelanggan</h3>
+                <form id="reviewForm" style="margin-bottom: 20px;">
+                  <input type="text" id="reviewerName" placeholder="Nama" required
+                    style="width: 100%; padding: 8px; margin-bottom: 10px; max-width: 350px;">
+                  <textarea id="reviewText" placeholder="Tulis ulasan nya dong kakak..." required
+                    style="width: 100%; padding: 8px; margin-bottom: 10px; height: 80px; max-width: 350px;"></textarea>
+                  <button type="submit"
+                    style="padding: 10px 20px; background-color: #1e2f51; color: white; border: none; cursor: pointer;">Kirim</button>
+                </form>
+            
+                <div id="reviewList" style="max-height: 250px; overflow-y: auto; color: white;"></div>
+              </div>
+            </div>
+            
+  
+            
+            <p style="text-align: center; font-size: 14px;">&copy; 2025 Nanta Rental. All rights reserved.</p>
+          </footer>
+        
+            </div>
+          
+    
+    <!-- Tombol WhatsApp -->
+    <a href="https://wa.me/628990305136" class="whatsapp" target="_blank">
+        <i class="fab fa-whatsapp" style="margin-right: 8px;"></i>Ada Pertanyaan?
+      </a>      
+    
+    <script>
+        function searchProducts() {
+          const input = document.getElementById("searchInput").value.toLowerCase();
+          const products = document.getElementsByClassName("product-card");
+        
+          for (let i = 0; i < products.length; i++) {
+            const title = products[i].getElementsByTagName("h4")[0].innerText.toLowerCase();
+            if (title.includes(input)) {
+              products[i].style.display = "block";
+            } else {
+              products[i].style.display = "none";
+            }
+          }
+        }
+
+        
+        function filterCategory(kategori) {
+            const allProducts = document.querySelectorAll('.product-card');
+
+            allProducts.forEach(product => {
+            if (kategori === 'all') {
+                product.style.display = 'block';
+            } else {
+                if (product.classList.contains('kategori-' + kategori)) {
+                product.style.display = 'block';
+                } else {
+                product.style.display = 'none';
+                }
+            }
+            });
+        }
+
+        
+        const form = document.getElementById("reviewForm");
+        const reviewList = document.getElementById("reviewList");
+
+        form.addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            const name = document.getElementById("reviewerName").value.trim();
+            const text = document.getElementById("reviewText").value.trim();
+
+            if (name && text) {
+            const reviewItem = document.createElement("div");
+            reviewItem.style.marginBottom = "15px";
+            reviewItem.innerHTML = `<strong>${name}</strong><p style="margin: 5px 0;">${text}</p>`;
+            reviewList.prepend(reviewItem); // tambahkan ke atas
+
+            form.reset();
+    }
+  });
+        </script>
+    
+</body>
+</html>
