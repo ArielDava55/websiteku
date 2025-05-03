@@ -143,8 +143,6 @@ const bodyParser = require('body-parser');
 const midtransClient = require('midtrans-client');
 const cors = require('cors');
 const path = require('path');
-const Transaksi = require('./models/Transaksi'); // pastikan ini path-nya bener
-const Produk = require('./models/Produk');
 const PORT = process.env.PORT || 3000;
 
 const app = express();
@@ -193,6 +191,11 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'pembayaran.html'));
 });
 
+app.get('/sukses', (req, res) => {
+    res.sendFile(path.join(__dirname, 'sukses.html'));
+  });
+  
+
 app.post('/cek-status', async (req, res) => {
     const { order_id } = req.body;
 
@@ -224,11 +227,6 @@ app.post('/notifikasi-midtrans', async (req, res) => {
 
         console.log(`🔔 Notifikasi: ${orderId} - ${transactionStatus}`);
 
-        // Update status transaksi di database
-        await Transaksi.findOneAndUpdate(
-            { order_id: orderId },
-            { status: transactionStatus }
-        );
 
         res.status(200).send('Notifikasi diproses');
     } catch (err) {
@@ -260,7 +258,7 @@ app.post('/buat-transaksi', async (req, res) => {
 
             }],
             callbacks: {
-                finish: "http://localhost:3000/sukses"  // <-- redirect ke halaman sukses kamu
+                finish: "http://localhost:3000/sukses.html"  // <-- redirect ke halaman sukses kamu
             }
         };
 

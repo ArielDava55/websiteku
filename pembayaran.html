@@ -199,6 +199,20 @@
 <div class="card">
   <h1 id="produk-nama">Memuat...</h1>
   <p id="produk-harga">Rp -</p>
+  <img id="produk-gambar" src="" alt="Gambar Produk" style="max-width: 200px; border-radius: 10px; margin-top: 15px;">
+  <h3 style="margin-top: 20px;">Spesifikasi</h3>
+  <ul id="produk-spesifikasi" style="
+  font-family: 'Poppins', sans-serif;
+  max-width: 400px;
+  margin: 10px auto;
+  text-align: left;
+  line-height: 1.6;
+  padding-left: 20px;
+  color: #444;
+">
+</ul>
+
+
 
   <div class="form-group">
     <input type="text" placeholder="Nama Lengkap" id="nama">
@@ -213,9 +227,23 @@
   const params = new URLSearchParams(window.location.search);
   const produk = params.get('produk');
   const harga = params.get('harga');
+  const gambar = params.get('gambar');
+  const spesifikasi = params.get('spesifikasi');
+  const spesifikasiList = document.getElementById("produk-spesifikasi");
 
   document.getElementById("produk-nama").innerText = produk || 'Produk Tidak Dikenali';
   document.getElementById("produk-harga").innerText = harga ? "Rp " + parseInt(harga).toLocaleString('id-ID') : '-';
+  document.getElementById("produk-gambar").src = gambar;
+  
+  if (spesifikasi) {
+  // Pisahkan spesifikasi berdasarkan titik koma (;) dari URL
+  const items = spesifikasi.split(';');
+  items.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = item.trim();
+    spesifikasiList.appendChild(li);
+  });
+}
 
   async function handleCheckout() {
     const nama = document.getElementById("nama").value;
